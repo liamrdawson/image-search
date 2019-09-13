@@ -1,5 +1,3 @@
-# HELIX RE Homework
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Installation
@@ -24,4 +22,3 @@ $ npm start
 
 ## Notes
 
-You can use this section to discuss the unfinished tasks from the assignment.
