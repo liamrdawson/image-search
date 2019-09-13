@@ -17,7 +17,6 @@ export default [
   "interview-resources/office-images/Fancy-Buying-an-Office-e1424143799291.jpg",
   "interview-resources/office-images/Furnished.jpg",
   "interview-resources/office-images/June-updates-to-Get-and-Transform.jpg",
-  "interview-resources/office-images/Kelly-2008-599.pdf",
   "interview-resources/office-images/LPSInstallers_AboutUsBanner-4500x3000.jpg",
   "interview-resources/office-images/Microsoft-healthcare-homepage.png",
   "interview-resources/office-images/Office-Hot-Desking.jpg",

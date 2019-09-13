@@ -1,0 +1,11 @@
+.image-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: $space8;
+    @include mq('med') {
+        grid-template-columns: 1fr 1fr;
+    }
+    @include mq('x-lg') {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}

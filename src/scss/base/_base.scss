@@ -11,7 +11,6 @@ body {
 
 
 .image-list, .search-form {
-    margin: 0 auto;
+    margin: $space8 auto;
     width: 80%;
-    border: red solid 1px;
 }

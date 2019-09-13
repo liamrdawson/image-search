@@ -13,14 +13,19 @@ download the edited image.
     - [x] SearchForm (Will consist of an input and a button)
     - [x] ImageList
     - [x] Image
-
+    - [x] Footer
+     
 ## Design
-- [ ] Set up SCSS work environment for styling
+- [x] Set up SCSS work environment for styling
     - [x] Install node-sass
     - [x] Set up SCSS project folders
+
+- [x] Style components
     - [x] Style Header
-    - [ ] Style ImageList
+    - [x] Style ImageList
     - [x] Style base elements
+    - [x] Style grid layout
+    - [x] Style Footer
 
 ### Design considerations
  - What's your MVP? Viewing and searching for images.
