@@ -7,7 +7,7 @@
 download the edited image.
 
 ## Structure
-- [ ] Set up React components for this Project
+- [x] Set up React components for this Project
     The main components you want to focus on will be...
     - [x] Header (Will only contain the title of the project)
     - [x] SearchForm (Will consist of an input and a button)
