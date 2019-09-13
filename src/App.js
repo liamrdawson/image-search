@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 
+//Styles
+import './scss/App.scss';
+
 //Components
 import Header from './components/Header';
 import SearchForm from './components/SearchForm';
