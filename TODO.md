@@ -1,7 +1,7 @@
 # To Do List
 
 ## Requirements
-- [ ] As a user I can visualise images retrieved via public URL’s in a gallery page.
+- [x] As a user I can visualise images retrieved via public URL’s in a gallery page.
 - [ ] As a user I can filter images based on their content (i.e. people, plants, chairs, windows etc).
 - [ ] As a user I can select one of the images and blur parts of this image (i.e a persons face) and
 download the edited image.
@@ -34,10 +34,8 @@ download the edited image.
 
 
 ## Logic and Data
-- [ ] Fetch JSON data from the Google Vision API.
-- [ ] From this data, for each image reasponse, create an object containing URL, array of labels and ID.
-- [ ] Send the object to state. 
+- [x] Fetch JSON data from the Google Vision API.
+- [x] From this data, for each image reasponse, create an object containing URL, array of labels and ID.
+- [x] Send the object to state. 
 ### As a user I can filter images based on their content (i.e. people, plants, chairs, windows etc).
 - [ ] On search submit, cycle through the array of objects, add any images that have a label matching the search term to the ImageList.
-
-

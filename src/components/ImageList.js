@@ -1,19 +1,24 @@
 import React, { useState }  from 'react';
 import data from '../data';
 
+//Components
+import Image from './Image';
+
 const getData = () => data;
 const storageBase = 'https://storage.googleapis.com/';
 
 
-const ImageList = () => {
-    const images = getData();
-    const [filteredImages] = useState(images);
+const ImageList = props => {
+
+    const results = props.data;
+
+    let images = results.map(image =>  
+        <Image url={storageBase + image.name}/> 
+    );
 
     return (
         <div className="image-list">
-            {filteredImages.map( image => (
-                <img className="image-item" src={storageBase+image} key={image} alt={image}></img>
-            ))}
+            {images}
         </div>
     )
 }

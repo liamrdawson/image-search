@@ -89,7 +89,7 @@ class App extends Component {
         <div className="App">
           <Header/>
           <SearchForm/>
-          <ImageList/>
+          <ImageList data={this.state.images}/>
           <Footer/>
         </div>
     );
