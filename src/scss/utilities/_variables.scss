@@ -1,0 +1,51 @@
+$dark:      #1B1A19;
+$dark-text: rgba($dark, 0.9);
+$light:     #FAF9F5;
+$brand:     #FF4000;
+
+$shade:     rgba($dark, .05);
+$warning:   red;
+$success:   green;
+$accent:    blue;
+
+//  SPACING SCALE: MAJOR THIRD
+$space12: 7.478rem;
+$space11: 5.61rem;
+$space10: 4.209rem;
+$space9: 3.157rem;
+$space8: 2.369rem;
+$space7: 1.777rem;
+$space6: 1.333rem;
+$space5: 1rem;
+$space4: 0.8rem;
+$space3: 0.64rem;
+$space2: 0.512rem;
+$space1: 0.41rem;
+
+// PADDING ALL SCALE: MAJOR THIRD
+$pa5: 1.777rem;
+$pa4: 1.333rem;
+$pa3: 1rem;
+$pa2: 0.8rem;
+$pa1: 0.64rem;
+
+//  BORDERS
+$corners: 6px;
+
+//  TYPE 
+$standard-font: 'Open Sans', sans-serif;
+$title-font: 'Open Sans', sans-serif;
+
+
+//  MEDIA QUERY BREAKPOINTS
+$breakpoints: (
+    // breakpoints
+    'sm'    :   490px,
+    'sm-med':   568px,
+    'med'   :   640px,
+    'large' :   1024px,
+    'x-lg'  :   1200px,
+    //  tweakpoints
+    'tab-w'  :  768px,
+    'tab-l'  :  1024px 
+);

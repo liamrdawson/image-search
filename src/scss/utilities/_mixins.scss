@@ -1,0 +1,24 @@
+@mixin title {
+    margin: $space8 0 $space6;
+    line-height: 1.15;
+}
+
+@mixin box-shadow {
+    -moz-box-shadow: 0 4px 7px 0.5px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 4px 7px 0.5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 7px 0.5px rgba(0, 0, 0, 0.1);
+}
+
+@mixin mq($break){
+    $value: map-get($breakpoints, $break);
+    $sm:    map-get($breakpoints, 'sm');
+    @if $value < $sm {
+        @media screen and (max-width: $value) {
+            @content;
+        }
+    } @else {
+        @media screen and (min-width: $value) {
+            @content;
+        }
+    }
+}

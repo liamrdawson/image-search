@@ -1,0 +1,13 @@
+header {
+    width: 100%;
+    background-color: $dark;
+    color: $brand;
+    text-align: center;
+    padding: $pa5;
+    h1 {
+        @include title();
+    }
+    span {
+        color: $light;
+    }
+}

@@ -16,9 +16,9 @@ download the edited image.
 
 ## Design
 - [ ] Set up SCSS work environment for styling
-    - [ ] Install node-sass
-    - [ ] Set up project folders
-    - [ ] Style Header
+    - [x] Install node-sass
+    - [x] Set up SCSS project folders
+    - [x] Style Header
     - [ ] Style ImageList
     - [ ] Style base elements
 
