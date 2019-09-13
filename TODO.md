@@ -9,11 +9,22 @@ download the edited image.
 ## Structure
 - [ ] Set up React components for this Project
     The main components you want to focus on will be...
-    - { }
+    - [x] Header (Will only contain the title of the project)
+    - [x] SearchForm (Will consist of an input and a button)
+    - [x] ImageList
+    - [x] Image
 
 ## Design
 - [ ] Set up SCSS work environment for styling
     - [ ] Install node-sass
     - [ ] Set up project folders
+    - [ ] Style Header
+    - [ ] Style ImageList
+    - [ ] Style base elements
 
-## Functionality
+### Design considerations
+ - What's your MVP? Viewing and searching for images.
+ - The design should look professional and complement the design style that HELIX RE are using currently.
+ - The application should be as simple and easy to use as possible to use, so try to keep the features to a minimum.
+
+

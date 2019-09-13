@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Installation
+# Installation
 
 After cloning this project, you need to import dependencies using [NPM](https://www.npmjs.com/).
 
@@ -21,4 +21,5 @@ $ npm start
 ```
 
 ## Notes
+
 
