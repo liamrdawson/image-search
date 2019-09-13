@@ -4,9 +4,9 @@ export default class SearchForm extends Component {
 
     render() {
         return (
-            <form>
-                <input/>
-                <button>Search</button>
+            <form clasName="search-form">
+                <input className="search-input"/>
+                <button className="search-button">Search</button>
             </form>
         );
     }

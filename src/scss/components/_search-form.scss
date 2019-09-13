@@ -1,0 +1,29 @@
+.search {
+    &-form {
+        display: flex;
+        justify-content: center;
+    }
+    &-input {
+        min-width: 50%;
+        color: $dark-text;
+    }
+    &-button {
+        min-width: $space12;
+        color: $brand;
+        background-color: $dark;
+        transition: background-color .3s ease-in;
+        &:hover {
+            background-color: $dark-text;
+            cursor: pointer;
+        }
+    }
+    &-button, &-input {
+        height: $space9;
+        margin: $space5 $space3;
+        font-size: $space5;
+        padding: $pa1;
+        border-radius: 4px;
+        border: none;
+        @include box-shadow();
+    }
+}

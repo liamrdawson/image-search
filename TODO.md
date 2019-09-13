@@ -20,7 +20,7 @@ download the edited image.
     - [x] Set up SCSS project folders
     - [x] Style Header
     - [ ] Style ImageList
-    - [ ] Style base elements
+    - [x] Style base elements
 
 ### Design considerations
  - What's your MVP? Viewing and searching for images.
