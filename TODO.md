@@ -33,3 +33,11 @@ download the edited image.
  - The application should be as simple and easy to use as possible to use, so try to keep the features to a minimum.
 
 
+## Logic and Data
+- [ ] Fetch JSON data from the Google Vision API.
+- [ ] From this data, for each image reasponse, create an object containing URL, array of labels and ID.
+- [ ] Send the object to state. 
+### As a user I can filter images based on their content (i.e. people, plants, chairs, windows etc).
+- [ ] On search submit, cycle through the array of objects, add any images that have a label matching the search term to the ImageList.
+
+
