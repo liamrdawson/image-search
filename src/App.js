@@ -10,11 +10,10 @@ import SearchForm from './components/SearchForm';
 import ImageList from './components/ImageList';
 import Footer from './components/Footer';
 
-
+//An array of images
 const images = data;
-//let filteredImages = images;
-//filteredImages.forEach(imagePath => getLabels(imagePath));
 
+//Information will be sent in fetch request and specifies features being requested.
 const createRequestJSON = paths => ({
   requests: paths.map(path => ({
       image: {
@@ -38,7 +37,7 @@ const getGoogleVisionUrl = () => {
 };
 
 class App extends Component {
-
+  
   constructor(){
     super();
     this.state = {
@@ -46,6 +45,11 @@ class App extends Component {
     }
   }
 
+  performSearch = () => {
+
+  }
+
+  //Uses response params to construct state
   buildDataObject = (str, arr) => {
     this.setState(prevState => ({
       images: [
@@ -59,9 +63,7 @@ class App extends Component {
     }));
   };
 
-
-
-
+  //Fetches data and triggers buildDataObject() with response as params
   getLabels = (path) => {
     const url = getGoogleVisionUrl();
     fetch((url), {
@@ -71,15 +73,9 @@ class App extends Component {
       .catch((err) => { console.log('error!', err); })
       .then(data => data.responses[0].labelAnnotations)
       .then(arr => this.buildDataObject(path, arr));
-      // .then(final => 
-      //   this.setState([{
-      //       labels: final.map(obj => obj.description),
-      //       name: path,
-      //       id: final[0].mid
-      //     }])
-      // );
   }
 
+  //Triggers fetch request for each image in data.js
   componentDidMount() {
     images.forEach(index => this.getLabels(index));
   }
