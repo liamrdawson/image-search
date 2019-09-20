@@ -37,5 +37,9 @@ download the edited image.
 - [x] Fetch JSON data from the Google Vision API.
 - [x] From this data, for each image reasponse, create an object containing URL, array of labels and ID.
 - [x] Send the object to state. 
-### As a user I can filter images based on their content (i.e. people, plants, chairs, windows etc).
+
+## As a user I can filter images based on their content (i.e. people, plants, chairs, windows etc).
 - [ ] On search submit, cycle through the array of objects, add any images that have a label matching the search term to the ImageList.
+- [ ] Images displayed are based only on searchText state value.
+    - [ ] If searchText state is '' then show nothing.
+    - [ ] Otherwise show images with labels matching searchText state
