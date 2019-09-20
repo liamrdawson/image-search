@@ -26,7 +26,7 @@ const createRequestJSON = paths => ({
       features: [
       {
           "type":"LABEL_DETECTION",
-          "maxResults": 10
+          "maxResults": 50
       }
       ]
   }))
