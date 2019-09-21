@@ -8,12 +8,9 @@ const storageBase = 'https://storage.googleapis.com/';
 const ImageList = props => {
 
     const results = props.data;
+    const searchText = props.searchText;
 
-    // let images = results.map(image =>  
-    //     <Image url={storageBase + image.name} key={image.id + image.name}/> 
-    // );
-
-    let images = results.filter(image => image.labels.indexOf("Conversation") > -1).map(finding => 
+    let images = results.filter(image => image.labels.indexOf(searchText) > -1).map(finding => 
         <Image url={storageBase + finding.name} key={finding.id + finding.name}/> 
         );
 

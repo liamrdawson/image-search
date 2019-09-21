@@ -41,12 +41,30 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      images: []
+      images: [],
+      searchText: 'Chair'
     }
   }
 
   performSearch = () => {
 
+  }
+
+  //Triggers fetch request for each image in data.js
+  componentDidMount() {
+    images.forEach(index => this.getLabels(index));
+  }
+
+  //Fetches data and triggers buildDataObject() with response as params
+  getLabels = (path) => {
+    const url = getGoogleVisionUrl();
+    fetch((url), {
+      method: 'POST',
+      body: JSON.stringify(createRequestJSON([path]))
+    }).then(response => response.json())
+      .catch((err) => { console.log('error!', err); })
+      .then(data => data.responses[0].labelAnnotations)
+      .then(arr => this.buildDataObject(path, arr));
   }
 
   //Uses response params to construct state
@@ -63,29 +81,14 @@ class App extends Component {
     }));
   };
 
-  //Fetches data and triggers buildDataObject() with response as params
-  getLabels = (path) => {
-    const url = getGoogleVisionUrl();
-    fetch((url), {
-      method: 'POST',
-      body: JSON.stringify(createRequestJSON([path]))
-    }).then(response => response.json())
-      .catch((err) => { console.log('error!', err); })
-      .then(data => data.responses[0].labelAnnotations)
-      .then(arr => this.buildDataObject(path, arr));
-  }
 
-  //Triggers fetch request for each image in data.js
-  componentDidMount() {
-    images.forEach(index => this.getLabels(index));
-  }
 
   render () {
     return (
         <div className="App">
           <Header/>
-          <SearchForm/>
-          <ImageList data={this.state.images}/>
+          <SearchForm onSearchChange={this.onSearchChange} handleSubmit={this.handleSubmit}/>
+          <ImageList data={this.state.images} searchText={this.state.searchText}/>
           <Footer/>
         </div>
     );
