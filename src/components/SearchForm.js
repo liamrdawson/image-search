@@ -2,22 +2,22 @@ import React, {Component} from 'react';
 
 export default class SearchForm extends Component {
 
-    onSearchChange = e => {
-        this.setState({ searchText: e.target.value });
-      }
+    // onSearchChange = e => {
+    //     this.setState({ searchText: e.target.value });
+    //   }
     
-    handleSubmit = e => {
-        e.preventDefault();
-        this.props.onSearch(this.state.searchText);
-        e.currentTarget.reset();
-    }
+    // handleSubmit = e => {
+    //     e.preventDefault();
+    //     this.props.onSearch(this.state.searchText);
+    //     e.currentTarget.reset();
+    // }
 
     render() {
 
         return (
-            <form className="search-form">
+            <form className="search-form" onSubmit={this.props.handleSubmit}>
                 <input  className="search-input"
-                        onChange={this.onSearchChange}
+                        onChange={this.props.onSearchChange}
                         placeholder="Filter by keyword (e.g. people, plants, chairs)"
                         type="search"
                         name="search"

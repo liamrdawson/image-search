@@ -42,17 +42,17 @@ class App extends Component {
     super();
     this.state = {
       images: [],
-      searchText: 'Chair'
+      searchText: ''
     }
   }
 
-  performSearch = () => {
-
+  performSearch = (query) => {
+    images.forEach(index => this.getLabels(index));
   }
 
   //Triggers fetch request for each image in data.js
   componentDidMount() {
-    images.forEach(index => this.getLabels(index));
+    
   }
 
   //Fetches data and triggers buildDataObject() with response as params
@@ -82,12 +82,21 @@ class App extends Component {
   };
 
 
+  onSearchChange = e => {
+    this.setState({ searchText: e.target.value });
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.performSearch(this.state.searchText);
+    e.currentTarget.reset();
+  }
 
   render () {
     return (
         <div className="App">
           <Header/>
-          <SearchForm onSearchChange={this.onSearchChange} handleSubmit={this.handleSubmit}/>
+          <SearchForm onSearch={this.performSearch} onSearchChange={this.onSearchChange} handleSubmit={this.handleSubmit}/>
           <ImageList data={this.state.images} searchText={this.state.searchText}/>
           <Footer/>
         </div>
