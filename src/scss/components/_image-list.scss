@@ -1,4 +1,14 @@
 .image-list {
     padding: $pa4;
     min-height: 80vh;
+    div {
+        text-align: center;
+    }
+}
+
+.image-main {
+    padding: $pa4;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
 }

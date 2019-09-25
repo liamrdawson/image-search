@@ -13,11 +13,15 @@ const ImageList = props => {
     const images = results.filter(image => image.labels.indexOf(searchText) > -1).map(finding => 
         <Image url={storageBase + finding.name} key={finding.id + finding.name}/> 
         );
-
     return (
-        <div className="image-list">
-            {images}
-        </div>
+        <React.Fragment>
+            <div className="image-main">
+                {images[0]}
+            </div>
+            <div className="image-list">
+                {images}
+            </div>
+        </React.Fragment>
     )
 }
 

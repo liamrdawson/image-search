@@ -42,4 +42,6 @@ download the edited image.
 - [x] On search submit, cycle through the array of objects, add any images that have a label matching the search term to the ImageList.
 - [x] Images displayed are based only on searchText state value.
     - [x] If searchText state is '' then show nothing.
-    - [x] Otherwise show images with labels matching searchText state
+    - [x] Otherwise show images with labels matching searchText state.
+
+## As a user I can select one of the images and blur parts of this image (i.e. a persons face) and download the edited image.
