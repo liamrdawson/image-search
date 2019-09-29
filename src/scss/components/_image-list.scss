@@ -6,9 +6,10 @@
     }
 }
 
+
 .image-main {
-    padding: $pa4;
+    min-height: 500px;
     width: 80%;
     margin: 0 auto;
-    text-align: center;
+    border: 2px tomato solid;
 }

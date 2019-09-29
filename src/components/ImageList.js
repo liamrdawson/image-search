@@ -1,29 +1,43 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 //Components
 import Image from './Image';
 
-const storageBase = 'https://storage.googleapis.com/';
+class TheImageList extends Component {
 
-const ImageList = props => {
+    state = {
+        selectedImage: ' '
+    }
 
-    const results = props.data;
-    const searchText = props.searchTerm;
+    storageBase = 'https://storage.googleapis.com/';
 
-    const images = results.filter(image => image.labels.indexOf(searchText) > -1).map(finding => 
-        <Image url={storageBase + finding.name} key={finding.id + finding.name}/> 
+
+    handleImageclick = e => {
+        this.setState({
+            selectedImage: e.target.url
+        })
+    }
+
+    render() {
+        const results = this.props.data;
+        const searchText = this.props.searchTerm;
+        const images = results.filter(image => image.labels.indexOf(searchText) > -1).map(finding => 
+            <Image url={this.storageBase + finding.name} key={finding.id + finding.name} handleImageclick={this.handleImageclick}/> 
+            );
+    
+        return (
+            <React.Fragment>
+                <div className="image-main">
+                    <Image url={this.state.selectedImage}/>
+                </div>
+                <div className="image-list">
+                    {images}
+                </div>
+            </React.Fragment>
         );
-    return (
-        <React.Fragment>
-            <div className="image-main">
-                {images[0]}
-            </div>
-            <div className="image-list">
-                {images}
-            </div>
-        </React.Fragment>
-    )
+    }
+
 }
 
 
-export default ImageList;
+export default TheImageList;

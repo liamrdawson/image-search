@@ -9,6 +9,7 @@ import Header from './components/Header';
 import SearchForm from './components/SearchForm';
 import ImageList from './components/ImageList';
 import Footer from './components/Footer';
+import TheImageList from './components/ImageList';
 
 //An array of images
 const images = data;
@@ -42,7 +43,8 @@ class App extends Component {
     super();
     this.state = {
       images: [],
-      searchTerm: ''
+      searchTerm: '',
+      selectedImage: ''
     }
   }
 
@@ -87,7 +89,8 @@ class App extends Component {
         <div className="App">
           <Header/>
           <SearchForm addSearchTerm={this.handleAddSearchTerm} />
-          <ImageList data={this.state.images} searchTerm={this.state.searchTerm}/>
+          {/* <ImageList data={this.state.images} searchTerm={this.state.searchTerm} selectedImage={this.state.selectedImage}/> */}
+          <TheImageList data={this.state.images} searchTerm={this.state.searchTerm} selectedImage={this.state.selectedImage}/>
           <Footer/>
         </div>
     );

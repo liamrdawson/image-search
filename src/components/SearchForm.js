@@ -27,7 +27,7 @@ export default class SearchForm extends Component {
                         value={this.state.value}
                         onChange={this.handleValueChange}
                         />
-                <button className="search-button"type="submit" id="submit">Search</button>
+                <button className="search-button" type="submit" id="submit">Search</button>
             </form>
         );
     }

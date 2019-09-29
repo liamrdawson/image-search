@@ -7,6 +7,7 @@ const imageStyle = {
 }
 
 const Image = props => {
+    
     return (
         <div >
             <img src={props.url}  alt="" style={imageStyle}/>
