@@ -6,7 +6,7 @@ import Image from './Image';
 class TheImageList extends Component {
 
     state = {
-        selectedImage: ' '
+        selectedImage: ''
     }
 
     storageBase = 'https://storage.googleapis.com/';
@@ -29,6 +29,11 @@ class TheImageList extends Component {
             <React.Fragment>
                 <div className="image-main">
                     <Image url={this.state.selectedImage}/>
+                {this.state.selectedImage !== '' ?
+                    <div>
+                        <button>Find Faces</button> 
+                        <button>Download</button>
+                    </div> : null}
                 </div>
                 <div className="image-list">
                     {images}

@@ -89,7 +89,6 @@ class App extends Component {
         <div className="App">
           <Header/>
           <SearchForm addSearchTerm={this.handleAddSearchTerm} />
-          {/* <ImageList data={this.state.images} searchTerm={this.state.searchTerm} selectedImage={this.state.selectedImage}/> */}
           <TheImageList data={this.state.images} searchTerm={this.state.searchTerm} selectedImage={this.state.selectedImage}/>
           <Footer/>
         </div>
