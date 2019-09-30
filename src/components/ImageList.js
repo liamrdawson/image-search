@@ -14,8 +14,8 @@ class TheImageList extends Component {
 
     handleImageclick = e => {
         this.setState({
-            selectedImage: e.target.url
-        })
+            selectedImage: e.target.src
+        });
     }
 
     render() {

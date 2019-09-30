@@ -8,8 +8,15 @@
 
 
 .image-main {
-    min-height: 500px;
     width: 80%;
+
+    text-align: center;
     margin: 0 auto;
-    border: 2px tomato solid;
+    div {
+        margin: auto;
+        img {
+            min-width: 100%;
+            margin: auto;
+        }
+    } 
 }
