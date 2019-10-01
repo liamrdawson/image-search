@@ -17,6 +17,7 @@ export default class SearchForm extends Component {
         this.setState({value: ''});
     }
 
+
     render() {
         return (
             <form className="search-form" onSubmit={this.handleSubmit}>

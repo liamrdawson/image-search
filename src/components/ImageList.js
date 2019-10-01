@@ -18,6 +18,7 @@ class TheImageList extends Component {
         });
     }
 
+
     render() {
         const results = this.props.data;
         const searchText = this.props.searchTerm;
@@ -27,14 +28,13 @@ class TheImageList extends Component {
     
         return (
             <React.Fragment>
-                <div className="image-main">
-                    <Image url={this.state.selectedImage}/>
+
                 {this.state.selectedImage !== '' ?
-                    <div>
+                    <div className="image-main">
+                        <Image url={this.state.selectedImage}/>
                         <button>Find Faces</button> 
                         <button>Download</button>
                     </div> : null}
-                </div>
                 <div className="image-list">
                     {images}
                 </div>

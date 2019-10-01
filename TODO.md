@@ -45,7 +45,7 @@ download the edited image.
     - [x] Otherwise show images with labels matching searchText state.
 
 ## As a user I can select one of the images and blur parts of this image (i.e. a persons face) and download the edited image.
-- [ ] Select any of the returned search images to display as main image before you can...
-    - [ ] Click a button to automatically identify faces in image.
-    - [ ] Confirm and blur the images I want to blur.
-    - [ ] Download the edited image.
+- [x] Select any of the returned search images to display as main image before you can...
+- [ ] Click a button to automatically identify faces in image.
+- [ ] Confirm and blur the images I want to blur.
+- [ ] Download the edited image.
