@@ -42,10 +42,10 @@ class App extends Component {
     fetch((url), {
       method: 'POST',
       body: JSON.stringify(api.createRequestJSON([path]))
-    }).then(response => response.json())
-      .catch((err) => { console.log('error!', err); })
-      .then(data => data.responses[0].labelAnnotations)
-      .then(arr => this.buildDataObject(path, arr));
+    }).then(response => console.log(response.json()));
+      // .catch((err) => { console.log('error!', err); })
+      // .then(data => data.responses[0].labelAnnotations)
+      // .then(arr => this.buildDataObject(path, arr));
   }
 
   //Uses response params to construct state

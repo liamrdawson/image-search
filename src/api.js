@@ -18,6 +18,10 @@ const createRequestJSON = paths => ({
         {
             "type":"LABEL_DETECTION",
             "maxResults": 50
+        },
+        {
+            "maxResults": 50,
+            "type": "FACE_DETECTION"
         }
         ]
     }))
