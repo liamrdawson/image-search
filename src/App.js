@@ -42,24 +42,54 @@ class App extends Component {
     fetch((url), {
       method: 'POST',
       body: JSON.stringify(api.createRequestJSON([path]))
-    }).then(response => console.log(response.json()));
-      // .catch((err) => { console.log('error!', err); })
-      // .then(data => data.responses[0].labelAnnotations)
-      // .then(arr => this.buildDataObject(path, arr));
+    }).then(response => response.json())
+      .catch((err) => { console.log('error!', err); })
+    
+      .then(data => data = data.responses[0])
+      // .then(annotations => console.log(annotations))
+      .then(obj => this.buildDataObject(path, obj));
   }
 
   //Uses response params to construct state
-  buildDataObject = (str, arr) => {
-    this.setState(prevState => ({
-      images: [
-        ...prevState.images,
-        {
-          name: str,
-          labels: arr.map(obj => obj.description),
-          id: arr[0].mid
-        }
-      ]
-    }));
+  buildDataObject = (str, object) => {
+    const labels = object.labelAnnotations
+    if (Object.keys(object).length > 1) {
+      const face = object.faceAnnotations[0];
+        this.setState(prevState => ({
+          images: [
+            ...prevState.images,
+            {
+              name: str,
+              labels: labels.map(obj => obj.description),
+              id: labels[0].mid,
+              face: face.boundingPoly.vertices
+            }
+          ]
+        }));
+    } else {
+      this.setState(prevState => ({
+        images: [
+          ...prevState.images,
+          {
+            name: str,
+            labels: labels.map(obj => obj.description),
+            id: labels[0].mid,
+            face: null
+          }
+        ]
+      }));
+    }
+    // this.setState(prevState => ({
+    //   images: [
+    //     ...prevState.images,
+    //     {
+    //       name: str,
+    //       labels: labels.map(obj => obj.description),
+    //       id: labels[0].mid,
+    //       face: face.boundingPoly.vertices
+    //     }
+    //   ]
+    // }));
   };
 
   render () {
