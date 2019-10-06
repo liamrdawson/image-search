@@ -18,12 +18,17 @@ class TheImageList extends Component {
         });
     }
 
+    handleFindFaces = () => {
+        
+    }
+
 
     render() {
         const results = this.props.data;
         const searchText = this.props.searchTerm;
         const images = results.filter(image => image.labels.indexOf(searchText) > -1).map(finding => 
-            <Image url={this.storageBase + finding.name} key={finding.id + finding.name} handleImageclick={this.handleImageclick}/> 
+            // <Image url={this.storageBase + finding.name} key={finding.id + finding.name} handleImageclick={this.handleImageclick}/> 
+            <Image url={finding.name} key={finding.id + finding.name} handleImageclick={this.handleImageclick}/> 
             );
     
         return (

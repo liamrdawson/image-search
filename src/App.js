@@ -30,6 +30,7 @@ class App extends Component {
     images.forEach(index => this.getLabels(index));
   }
 
+
   handleAddSearchTerm = (search) => {
     this.setState({
       searchTerm: search
@@ -46,15 +47,15 @@ class App extends Component {
       .catch((err) => { console.log('error!', err); })
     
       .then(data => data = data.responses[0])
-      // .then(annotations => console.log(annotations))
+    //  .then(annotations => console.log(annotations));
       .then(obj => this.buildDataObject(path, obj));
   }
 
   //Uses response params to construct state
   buildDataObject = (str, object) => {
-    const labels = object.labelAnnotations
+    const labels = object.labelAnnotations;
     if (Object.keys(object).length > 1) {
-      const face = object.faceAnnotations[0];
+      const faces = object.faceAnnotations;
         this.setState(prevState => ({
           images: [
             ...prevState.images,
@@ -62,7 +63,7 @@ class App extends Component {
               name: str,
               labels: labels.map(obj => obj.description),
               id: labels[0].mid,
-              face: face.boundingPoly.vertices
+              faces: faces.map(face => face.boundingPoly)
             }
           ]
         }));
@@ -79,17 +80,6 @@ class App extends Component {
         ]
       }));
     }
-    // this.setState(prevState => ({
-    //   images: [
-    //     ...prevState.images,
-    //     {
-    //       name: str,
-    //       labels: labels.map(obj => obj.description),
-    //       id: labels[0].mid,
-    //       face: face.boundingPoly.vertices
-    //     }
-    //   ]
-    // }));
   };
 
   render () {

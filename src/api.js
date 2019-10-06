@@ -10,6 +10,7 @@ const createRequestJSON = paths => ({
         image: {
         source: {
             // DO NOT CHANGE! this is where the demo images are hosted
+           // imageUri: `${path}`
             imageUri: `gs://${path}`,
         },
         },
