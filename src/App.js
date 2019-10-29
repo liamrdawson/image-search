@@ -53,9 +53,12 @@ class App extends Component {
 
   //Uses response params to construct state
   buildDataObject = (str, object) => {
+    console.log(object);
+    console.log(str);
     const labels = object.labelAnnotations;
     if (Object.keys(object).length > 1) {
       const faces = object.faceAnnotations;
+      console.log(labels);
         this.setState(prevState => ({
           images: [
             ...prevState.images,

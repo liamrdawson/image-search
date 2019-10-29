@@ -11,7 +11,7 @@ const createRequestJSON = paths => ({
         source: {
             // DO NOT CHANGE! this is where the demo images are hosted
            // imageUri: `${path}`
-            imageUri: `gs://${path}`,
+            imageUri: path,
         },
         },
         //REQUEST FEATURES FROM VISION API
