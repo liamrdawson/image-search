@@ -20,9 +20,8 @@ class TheImageList extends Component {
         const results = this.props.data;
         const searchText = this.props.searchTerm;
         console.log(results);
-        const images = results.filter(image => image.labels.indexOf(searchText) > -1).map(finding => 
-
-            <Image url={finding.name} key={finding.id + finding.name} handleImageclick={this.handleImageclick}/> 
+        const images = results.filter(image => image.labels.indexOf(searchText) > -1)
+        .map(finding =>  <Image url={finding.name} key={finding.id + finding.name} handleImageclick={this.handleImageclick}/> 
             );
     
         return (

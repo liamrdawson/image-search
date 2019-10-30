@@ -27,9 +27,7 @@ const App = () => {
 
 
   const handleAddSearchTerm = (search) => {
-    setSearchTerm({
-      searchTerm: search
-    })
+    setSearchTerm(search)
   }
 
   //Fetches data and triggers buildDataObject() with response as params
@@ -54,7 +52,7 @@ const App = () => {
         setImages(prevImages => [ ...prevImages, 
             {
               name: str,
-              labels: object.labelAnnotations.map(obj => obj.description),
+              labels: ["All", object.labelAnnotations.map(obj => obj.description)].flat(),
               id: labels[0].mid,
               faces: faces.map(face => face.boundingPoly)
             }]
@@ -64,7 +62,7 @@ const App = () => {
       setImages(images => [ ...images,
           {
             name: str,
-            labels: object.labelAnnotations.map(obj => obj.description),
+            labels: ["All", object.labelAnnotations.map(obj => obj.description)].flat(),
             id: labels[0].mid,
             face: null
           }]
