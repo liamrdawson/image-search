@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
 import data from './data';
 import api from './api';
 
@@ -12,89 +12,75 @@ import Footer from './components/Footer';
 import TheImageList from './components/ImageList';
 
 //An array of images
-const images = data;
+const imagesArray = data;
 
 
-class App extends Component {
+const App = () => {
   
-  constructor(){
-    super();
-    this.state = {
-      images: [],
-      searchTerm: '',
-      selectedImage: ''
-    }
-  }
+  const [ images, setImages ] = useState([ {}, {} ]);
+  const [ searchTerm, setSearchTerm ] = useState('');
+  const [ selectedImage, setSelectedImage ] = useState('');
 
-  componentDidMount() {
-    images.forEach(index => this.getLabels(index));
-  }
+  useEffect( () => {
+    imagesArray.forEach(index => {getLabels(index)});
+  }, []);
 
 
-  handleAddSearchTerm = (search) => {
-    this.setState({
+  const handleAddSearchTerm = (search) => {
+    setSearchTerm({
       searchTerm: search
     })
   }
 
   //Fetches data and triggers buildDataObject() with response as params
-  getLabels = (path) => {
+  const getLabels = (path) => {
     const url = api.getGoogleVisionUrl();
     fetch((url), {
       method: 'POST',
       body: JSON.stringify(api.createRequestJSON([path]))
     }).then(response => response.json())
       .catch((err) => { console.log('error!', err); })
-    
       .then(data => data = data.responses[0])
-    //  .then(annotations => console.log(annotations));
-      .then(obj => this.buildDataObject(path, obj));
+      .then(obj => buildDataObject(path, obj));
   }
 
   //Uses response params to construct state
-  buildDataObject = (str, object) => {
-    console.log(object);
-    console.log(str);
+  const buildDataObject = (str, object) => {
+
     const labels = object.labelAnnotations;
+    console.log(object);
     if (Object.keys(object).length > 1) {
       const faces = object.faceAnnotations;
-      console.log(labels);
-        this.setState(prevState => ({
-          images: [
-            ...prevState.images,
+        setImages([...images,
             {
               name: str,
-              labels: labels.map(obj => obj.description),
+              labels: object.labelAnnotations.map(obj => obj.description),
               id: labels[0].mid,
               faces: faces.map(face => face.boundingPoly)
-            }
-          ]
-        }));
+            }]
+          )
     } else {
-      this.setState(prevState => ({
-        images: [
-          ...prevState.images,
+      setImages([...images,
           {
             name: str,
-            labels: labels.map(obj => obj.description),
+            labels: object.labelAnnotations.map(obj => obj.description),
             id: labels[0].mid,
             face: null
-          }
-        ]
-      }));
+          }]
+        )
     }
   };
 
-  render () {
+
     return (
         <div className="App">
           <Header/>
-          <SearchForm addSearchTerm={this.handleAddSearchTerm} />
-          <TheImageList data={this.state.images} searchTerm={this.state.searchTerm} selectedImage={this.state.selectedImage}/>
+          <SearchForm addSearchTerm={handleAddSearchTerm} />
+          <TheImageList data={images} searchTerm={searchTerm} selectedImage={selectedImage}/>
           <Footer/>
         </div>
     );
-  }
+  
 }
 
 export default App;

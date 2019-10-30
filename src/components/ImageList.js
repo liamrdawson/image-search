@@ -26,10 +26,10 @@ class TheImageList extends Component {
     render() {
         const results = this.props.data;
         const searchText = this.props.searchTerm;
-        const images = results.filter(image => image.labels.indexOf(searchText) > -1).map(finding => 
-            // <Image url={this.storageBase + finding.name} key={finding.id + finding.name} handleImageclick={this.handleImageclick}/> 
-            <Image url={finding.name} key={finding.id + finding.name} handleImageclick={this.handleImageclick}/> 
-            );
+        // const images = results.filter(image => image.labels.indexOf(searchText) > -1).map(finding => 
+        //     console.log(finding)
+        //     // <Image url={finding.name} key={finding.id + finding.name} handleImageclick={this.handleImageclick}/> 
+        //     );
     
         return (
             <React.Fragment>
@@ -41,7 +41,7 @@ class TheImageList extends Component {
                         <button>Download</button>
                     </div> : null}
                 <div className="image-list">
-                    {images}
+                    {/* {images} */}
                 </div>
             </React.Fragment>
         );
