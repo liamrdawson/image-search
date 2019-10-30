@@ -1,44 +1,38 @@
-import React, {Component} from 'react';
+import React, {useContext, useState} from 'react';
+import {SearchContext} from '../context/SearchContext';
+
 
 //Components
 import Image from './Image';
 
-class TheImageList extends Component {
+const TheImageList = (props) => {
 
-    state = {
-        selectedImage: ''
+    const [searchTerm, setSearchTerm] = useContext(SearchContext);
+    const [selectedImage, setSelectedImage] = useState('');
+
+    const handleImageclick = e => {
+        setSelectedImage(e.target.src);
     }
 
-    handleImageclick = e => {
-        this.setState({
-            selectedImage: e.target.src
-        });
-    }
-
-
-    render() {
-        const results = this.props.data;
-        const searchText = this.props.searchTerm;
-        console.log(results);
-        const images = results.filter(image => image.labels.indexOf(searchText) > -1)
-        .map(finding =>  <Image url={finding.name} key={finding.id + finding.name} handleImageclick={this.handleImageclick}/> 
-            );
+    const results = props.data;
+    console.log(results);
+    const images = results.filter(image => image.labels.indexOf(searchTerm) > -1)
+        .map(finding =>  <Image url={finding.name} key={finding.id + finding.name} handleImageclick={handleImageclick}/> 
+    );
     
-        return (
-            <React.Fragment>
-
-                {this.state.selectedImage !== '' ?
-                    <div className="image-main">
-                        <Image url={this.state.selectedImage}/>
-                        <button>Find Faces</button> 
-                        <button>Download</button>
-                    </div> : null}
-                <div className="image-list">
-                    {images}
-                </div>
-            </React.Fragment>
-        );
-    }
+    return (
+        <React.Fragment>
+            {selectedImage !== '' ?
+                <div className="image-main">
+                    <Image url={selectedImage}/>
+                    <button>Find Faces</button> 
+                    <button>Download</button>
+                </div> : null}
+            <div className="image-list">
+                {images}
+            </div>
+        </React.Fragment>
+    );
 
 }
 

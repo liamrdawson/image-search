@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import data from './data';
 import api from './api';
+import {SearchProvider} from './context/SearchContext';
 
 //Styles
 import './scss/App.scss';
@@ -18,17 +19,12 @@ const imagesArray = data;
 const App = () => {
   
   const [ images, setImages ] = useState([]);
-  const [ searchTerm, setSearchTerm ] = useState('');
   const [ selectedImage, setSelectedImage ] = useState('');
 
   useEffect( () => {
     return imagesArray.forEach(index => {getLabels(index)});
   }, []);
 
-
-  const handleAddSearchTerm = (search) => {
-    setSearchTerm(search)
-  }
 
   //Fetches data and triggers buildDataObject() with response as params
   const getLabels = (path) => {
@@ -74,10 +70,12 @@ const App = () => {
 
     return (
         <div className="App">
-          <Header/>
-          <SearchForm addSearchTerm={handleAddSearchTerm} />
-          <TheImageList data={images} searchTerm={searchTerm} selectedImage={selectedImage}/>
-          <Footer/>
+            <SearchProvider>
+                <Header/>
+                <SearchForm />
+                <TheImageList data={images} selectedImage={selectedImage}/>
+                <Footer/>
+            </SearchProvider>
         </div>
     );
   

@@ -1,37 +1,34 @@
-import React, {Component} from 'react';
+import React, {useContext, useState} from 'react';
+import {SearchContext} from '../context/SearchContext';
 
-export default class SearchForm extends Component {
+const SearchForm = () => {
 
-    state = {
-        value: ''
-    };
+    const [searchTerm, setSearchTerm] = useContext(SearchContext);
+    const [searchValue, setSearchValue] = useState('');
 
-
-    handleValueChange = (e) => {
-        this.setState( {value: e.target.value} )
+    const handleValueChange = (e) => {
+        setSearchValue(e.target.value)
     }
 
-    handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        this.props.addSearchTerm(this.state.value);
-        this.setState({value: ''});
+        setSearchTerm(searchValue);
+        setSearchValue('');
     }
 
-    
-
-    render() {
-        return (
-            <form className="search-form" onSubmit={this.handleSubmit}>
-                <input  className="search-input"
-                        placeholder="Filter by keyword (e.g. people, plants, chairs)"
-                        type="search"
-                        name="search"
-                        value={this.state.value}
-                        onChange={this.handleValueChange}
-                        />
-                <button className="search-button" type="submit" id="submit">Search</button>
-            </form>
-        );
-    }
+    return (
+        <form className="search-form" onSubmit={handleSubmit}>
+            <input  className="search-input"
+                    placeholder="Filter by keyword (e.g. people, plants, chairs)"
+                    type="search"
+                    name="search"
+                    value={searchValue}
+                    onChange={handleValueChange}
+                    />
+            <button className="search-button" type="submit" id="submit">Search</button>
+        </form>
+    );
     
 }
+
+export default SearchForm;

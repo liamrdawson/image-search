@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Header() {
+const  Header = () => {
     return (
         <React.Fragment>
             <header>
@@ -10,3 +10,5 @@ export default function Header() {
         </React.Fragment>
     );
 }
+
+export default Header;
