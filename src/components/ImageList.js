@@ -9,27 +9,21 @@ class TheImageList extends Component {
         selectedImage: ''
     }
 
-    storageBase = 'https://storage.googleapis.com/';
-
-
     handleImageclick = e => {
         this.setState({
             selectedImage: e.target.src
         });
     }
 
-    handleFindFaces = () => {
-        
-    }
-
 
     render() {
         const results = this.props.data;
         const searchText = this.props.searchTerm;
-        // const images = results.filter(image => image.labels.indexOf(searchText) > -1).map(finding => 
-        //     console.log(finding)
-        //     // <Image url={finding.name} key={finding.id + finding.name} handleImageclick={this.handleImageclick}/> 
-        //     );
+        console.log(results);
+        const images = results.filter(image => image.labels.indexOf(searchText) > -1).map(finding => 
+
+            <Image url={finding.name} key={finding.id + finding.name} handleImageclick={this.handleImageclick}/> 
+            );
     
         return (
             <React.Fragment>
@@ -41,7 +35,7 @@ class TheImageList extends Component {
                         <button>Download</button>
                     </div> : null}
                 <div className="image-list">
-                    {/* {images} */}
+                    {images}
                 </div>
             </React.Fragment>
         );

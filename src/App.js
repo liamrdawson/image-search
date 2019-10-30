@@ -17,12 +17,12 @@ const imagesArray = data;
 
 const App = () => {
   
-  const [ images, setImages ] = useState([ {}, {} ]);
+  const [ images, setImages ] = useState([]);
   const [ searchTerm, setSearchTerm ] = useState('');
   const [ selectedImage, setSelectedImage ] = useState('');
 
   useEffect( () => {
-    imagesArray.forEach(index => {getLabels(index)});
+    return imagesArray.forEach(index => {getLabels(index)});
   }, []);
 
 
@@ -48,10 +48,10 @@ const App = () => {
   const buildDataObject = (str, object) => {
 
     const labels = object.labelAnnotations;
-    console.log(object);
+
     if (Object.keys(object).length > 1) {
       const faces = object.faceAnnotations;
-        setImages([...images,
+        setImages(prevImages => [ ...prevImages, 
             {
               name: str,
               labels: object.labelAnnotations.map(obj => obj.description),
@@ -59,8 +59,9 @@ const App = () => {
               faces: faces.map(face => face.boundingPoly)
             }]
           )
+          
     } else {
-      setImages([...images,
+      setImages(images => [ ...images,
           {
             name: str,
             labels: object.labelAnnotations.map(obj => obj.description),
@@ -70,6 +71,7 @@ const App = () => {
         )
     }
   };
+  console.log(images);
 
 
     return (
