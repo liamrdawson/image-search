@@ -3,20 +3,20 @@ import data from '../data';
 import api from '../api';
 
 // Example custom hook...
-export const useVision = (imageUrl, dependencies) => {
+export const useVision = (imageArray, dependencies) => {
 
-    const imagesArray = data;
-    const [ images, setImages ] = useState([]);
     const [ fetchedData, setFetchedData ] = useState([]);
-
+    const url = api.getGoogleVisionUrl();
     useEffect( () => {
-        fetch('https://jsonplaceholder.typicode.com/photos?_limit=3')
-            .then(data => data.json())
-            .then(data => setFetchedData(data))
+        imageArray.forEach( img =>
+            fetch((url), {
+              method: 'POST',
+              body: JSON.stringify(api.createRequestJSON([img]))
+            }).then(response => response.json())
+              .catch((err) => { console.log('error!', err); })
+              .then(data => setFetchedData(data.responses[0]))
+        );
      }, dependencies);
      console.log(fetchedData)
-
     return fetchedData;
-
-    
 };

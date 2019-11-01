@@ -15,7 +15,6 @@ const TheImageList = (props) => {
     }
 
     const results = props.data;
-    console.log(results);
     const images = results.filter(image => image.labels.indexOf(searchTerm) > -1)
         .map(finding =>  <Image url={finding.name} key={finding.id + finding.name} handleImageclick={handleImageclick}/> 
     );

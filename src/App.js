@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import data from './data';
 import api from './api';
 import {SearchProvider} from './context/SearchContext';
+import {useVision} from './hooks/Vision';
 
 //Styles
 import './scss/App.scss';
@@ -18,12 +19,13 @@ const imagesArray = data;
 
 const App = () => {
   
-  const [ images, setImages ] = useState([]);
-  const [ selectedImage, setSelectedImage ] = useState('');
-
-  useEffect( () => {
-    return imagesArray.forEach(index => {getLabels(index)});
-  }, []);
+    const [ images, setImages ] = useState([]);
+    const [ selectedImage, setSelectedImage ] = useState('');
+    useVision(imagesArray, []);
+    
+    useEffect( () => {
+        return imagesArray.forEach(index => {getLabels(index)});
+    }, []);
 
 
   //Fetches data and triggers buildDataObject() with response as params
