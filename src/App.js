@@ -65,7 +65,6 @@ const App = () => {
         )
     }
   };
-  console.log(images);
 
 
     return (
