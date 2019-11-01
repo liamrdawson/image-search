@@ -14,7 +14,7 @@ export const useVision = (imageArray, dependencies) => {
               body: JSON.stringify(api.createRequestJSON([img]))
             }).then(response => response.json())
               .catch((err) => { console.log('error!', err); })
-              .then(data => setFetchedData(data.responses[0]))
+              .then(data => setFetchedData(prevData => [...prevData, data.responses[0]]))
         );
      }, dependencies);
      console.log(fetchedData)
