@@ -7,7 +7,7 @@ import Image from './Image';
 
 const TheImageList = (props) => {
 
-    const [searchTerm, setSearchTerm] = useContext(SearchContext);
+    const [searchTerm] = useContext(SearchContext);
     const [selectedImage, setSelectedImage] = useState('');
 
     const handleImageclick = e => {

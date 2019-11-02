@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import data from '../data';
+import {useState, useEffect} from 'react';
 import api from '../api';
 
 // Example custom hook...
@@ -14,9 +13,12 @@ export const useVision = (imageArray, dependencies) => {
               body: JSON.stringify(api.createRequestJSON([img]))
             }).then(response => response.json())
               .catch((err) => { console.log('error!', err); })
-              .then(data => setFetchedData(prevData => [...prevData, data.responses[0]]))
+              .then(data => setFetchedData(prevData => [...prevData,  
+                {   
+                    labels: data.responses[0].labelAnnotations,
+                    url:img 
+                }]))
         );
-     }, dependencies);
-     console.log(fetchedData)
+     }, [imageArray, url]);
     return fetchedData;
 };

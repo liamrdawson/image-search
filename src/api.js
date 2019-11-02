@@ -1,9 +1,3 @@
-import React, {Component} from 'react';
-import data from './data';
-
-const images = data;
-
-
 //  1A Specify data to be returned by API, use in getLabels
 const createRequestJSON = paths => ({
     requests: paths.map(path => ({
