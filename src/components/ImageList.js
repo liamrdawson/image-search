@@ -17,7 +17,6 @@ const TheImageList = (props) => {
         setSelectedImage(e.target.src);
     }
 
-    const results = props.data;
     const images = fetchedData.filter(image => image.labels.indexOf(searchTerm) > -1)
         .map(finding =>  <Image url={finding.name} key={finding.id + finding.name} handleImageclick={handleImageclick}/> 
     );
