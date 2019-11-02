@@ -1,5 +1,7 @@
 import React, {useContext, useState} from 'react';
 import {SearchContext} from '../context/SearchContext';
+import {useVision} from '../hooks/Vision';
+import data from '../data';
 
 
 //Components
@@ -9,13 +11,14 @@ const TheImageList = (props) => {
 
     const [searchTerm] = useContext(SearchContext);
     const [selectedImage, setSelectedImage] = useState('');
+    const fetchedData = useVision(data);
 
     const handleImageclick = e => {
         setSelectedImage(e.target.src);
     }
 
     const results = props.data;
-    const images = results.filter(image => image.labels.indexOf(searchTerm) > -1)
+    const images = fetchedData.filter(image => image.labels.indexOf(searchTerm) > -1)
         .map(finding =>  <Image url={finding.name} key={finding.id + finding.name} handleImageclick={handleImageclick}/> 
     );
     

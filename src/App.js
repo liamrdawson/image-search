@@ -15,33 +15,10 @@ import TheImageList from './components/ImageList';
 //An array of images
 const imagesArray = data;
 
-
 const App = () => {
   
     const [ images, setImages ] = useState([]);
     const [ selectedImage, setSelectedImage ] = useState('');
-    const fetchedData = useVision(imagesArray, []);
- 
-  //Uses response params to construct state
-    const buildDataObject = (array) => {
-        const name = array.url;
-        const labels = array.labels;
-
-        setImages(images => [ ...images,
-            {
-                name: name,
-                // labels: ["All", labels.map(obj => obj.description)].flat(),
-                // id: labels[0].mid,
-                // face: null
-            }]
-        )
-        console.log(images);
-    };
-
-    // fetchedData.forEach(a => buildDataObject(a));
-    console.log(images);
-
-
 
     return (
         <div className="App">
@@ -53,7 +30,6 @@ const App = () => {
             </SearchProvider>
         </div>
     );
-  
 }
 
 export default App;

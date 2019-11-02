@@ -3,7 +3,7 @@ import {SearchContext} from '../context/SearchContext';
 
 const SearchForm = () => {
 
-    const [setSearchTerm] = useContext(SearchContext);
+    const [searchTerm, setSearchTerm] = useContext(SearchContext);
     const [searchValue, setSearchValue] = useState('');
 
     const handleValueChange = (e) => {
