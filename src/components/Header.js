@@ -5,7 +5,7 @@ const  Header = () => {
         <React.Fragment>
             <header>
                 <h1>IMAGE PICKER</h1>
-                <span>Search for an image, I'll see what I can do...</span>
+                <span>Describe the type of image you're looking for...</span>
             </header>
         </React.Fragment>
     );

@@ -28,7 +28,7 @@ download the edited image.
     - [x] Style Footer
 
 ### Design considerations
- - What's your MVP? Viewing and searching for images.
+ - What's your MVP? Uploading, searching for and viewing images based on a description of the image.
  - The design should look professional and complement the design style that HELIX RE are using currently.
  - The application should be as simple and easy to use as possible to use, so try to keep the features to a minimum.
 
@@ -38,13 +38,21 @@ download the edited image.
 - [x] From this data, for each image reasponse, create an object containing URL, array of labels and ID.
 - [x] Send the object to state. 
 
-## As a user I can filter images based on their content (i.e. people, plants, chairs, windows etc).
+## ***As a user I can...***
+
+## ... upload an image for this to be processed and labelled.
+- [ ] Upload an image to a project folder (for POC only - this will eventually be replaced with a back end e.g. MongoDB).
+- [ ] Once uploaded, add the images url to the array of image urls in data.js
+
+## ... add my own labels to images that I upload.
+
+## ... filter images based on their content (i.e. people, plants, chairs, windows etc).
 - [x] On search submit, cycle through the array of objects, add any images that have a label matching the search term to the ImageList.
 - [x] Images displayed are based only on searchText state value.
     - [x] If searchText state is '' then show nothing.
     - [x] Otherwise show images with labels matching searchText state.
 
-## As a user I can select one of the images and blur parts of this image (i.e. a persons face) and download the edited image.
+## ... select one of the images and blur parts of this image (i.e. a persons face) and download the edited image.
 - [x] Select any of the returned search images to display as main image before you can...
 - [ ] Click a button to automatically identify faces in image.
 - [ ] Blur faces in an image.

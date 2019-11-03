@@ -18,7 +18,7 @@ export const useVision = (imageArray, dependencies) => {
             features: [
             {
                 "type":"LABEL_DETECTION",
-                "maxResults": 50
+                "maxResults": 200
             },
             {
                 "maxResults": 50,
